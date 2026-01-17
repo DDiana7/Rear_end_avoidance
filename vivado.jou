@@ -1,0 +1,315 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Sat Jan 17 14:56:03 2026
+# Process ID: 15856
+# Current directory: C:/Users/dolca/Desktop/project_1
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14108 C:\Users\dolca\Desktop\project_1\project_1.xpr
+# Log file: C:/Users/dolca/Desktop/project_1/vivado.log
+# Journal file: C:/Users/dolca/Desktop/project_1\vivado.jou
+# Running On        :Diana
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :26100
+# Processor Detail  :13th Gen Intel(R) Core(TM) i7-13650HX
+# CPU Frequency     :2803 MHz
+# CPU Physical cores:14
+# CPU Logical cores :20
+# Host memory       :25463 MB
+# Swap memory       :6710 MB
+# Total Virtual     :32174 MB
+# Available Virtual :12079 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/dolca/Desktop/project_1/project_1.xpr
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+update_compile_order -fileset sources_1
+write_hw_platform -fixed -include_bit -force -file C:/Users/dolca/Desktop/project_1/design_1_wrapper.xsa
+open_bd_design {C:/Users/dolca/Desktop/project_1/project_1.srcs/sources_1/bd/design_1/design_1.bd}
+delete_bd_objs [get_bd_intf_nets ps7_0_axi_periph_M08_AXI] [get_bd_intf_nets axi_gpio_leds_GPIO] [get_bd_cells axi_gpio_leds]
+delete_bd_objs [get_bd_intf_ports leds_4bits]
+validate_bd_design
+save_bd_design
+reset_run synth_1
+reset_run design_1_xbar_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+write_hw_platform -fixed -include_bit -force -file C:/Users/dolca/Desktop/project_1/design_1_wrapper.xsa
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0
+endgroup
+set_property name axi_gpio_leds [get_bd_cells axi_gpio_0]
+set_property CONFIG.GPIO_BOARD_INTERFACE {leds_4bits} [get_bd_cells axi_gpio_leds]
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {leds_4bits ( 4 LEDs ) } Manual_Source {Auto}}  [get_bd_intf_pins axi_gpio_leds/GPIO]
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/processing_system7_0/FCLK_CLK0 (50 MHz)} Clk_slave {Auto} Clk_xbar {/processing_system7_0/FCLK_CLK0 (50 MHz)} Master {/processing_system7_0/M_AXI_GP0} Slave {/axi_gpio_leds/S_AXI} ddr_seg {Auto} intc_ip {/ps7_0_axi_periph} master_apm {0}}  [get_bd_intf_pins axi_gpio_leds/S_AXI]
+endgroup
+validate_bd_design
+make_wrapper -files [get_files C:/Users/dolca/Desktop/project_1/project_1.srcs/sources_1/bd/design_1/design_1.bd] -top
+reset_run synth_1
+reset_run design_1_xbar_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+write_hw_platform -fixed -include_bit -force -file C:/Users/dolca/Desktop/project_1/design_1_wrapper.xsa
+startgroup
+endgroup
+delete_bd_objs [get_bd_intf_nets ps7_0_axi_periph_M08_AXI] [get_bd_intf_nets axi_gpio_leds_GPIO] [get_bd_cells axi_gpio_leds]
+delete_bd_objs [get_bd_intf_ports leds_4bits]
+validate_bd_design
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+write_hw_platform -fixed -include_bit -force -file C:/Users/dolca/Desktop/project_1/design_1_wrapper.xsa
+close [ open C:/Users/dolca/Desktop/project_1/project_1.srcs/sources_1/new/top_pot_leds.vhd w ]
+add_files C:/Users/dolca/Desktop/project_1/project_1.srcs/sources_1/new/top_pot_leds.vhd
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/dolca/Desktop/project_1/project_1.srcs/sources_1/bd/design_1/design_1.bd}
+open_bd_design {C:/Users/dolca/Desktop/project_1/project_1.srcs/sources_1/bd/design_1/design_1.bd}
+delete_bd_objs [get_bd_nets axi_gpio_resetare_gpio_io_o] [get_bd_nets axi_gpio_start_gpio_io_o] [get_bd_nets axi_gpio_dividend_gpio_io_o] [get_bd_nets axi_gpio_divisor_gpio_io_o] [get_bd_nets RestoringDivision_0_quotient] [get_bd_nets RestoringDivision_0_remainder] [get_bd_nets RestoringDivision_0_gata] [get_bd_cells RestoringDivision_0]
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/dolca/Desktop/project_1/project_1.srcs/sources_1/bd/design_1/design_1.bd}
+create_bd_cell -type module -reference RestoringDivision RestoringDivision_0
+connect_bd_net [get_bd_pins axi_gpio_resetare/gpio_io_o] [get_bd_pins RestoringDivision_0/rst]
+connect_bd_net [get_bd_pins axi_gpio_remainder/gpio_io_i] [get_bd_pins RestoringDivision_0/remainder]
+connect_bd_net [get_bd_ports vaux7p] [get_bd_pins axi_gpio_quotient/gpio_io_i]
+undo
+set_property location {3 1471 91} [get_bd_cells RestoringDivision_0]
+connect_bd_net [get_bd_pins axi_gpio_quotient/gpio_io_i] [get_bd_pins RestoringDivision_0/quotient]
+connect_bd_net [get_bd_pins axi_gpio_dividend/gpio_io_o] [get_bd_pins RestoringDivision_0/dividend]
+connect_bd_net [get_bd_pins axi_gpio_start/gpio_io_o] [get_bd_pins RestoringDivision_0/start]
+connect_bd_net [get_bd_pins axi_gpio_divisor/gpio_io_o] [get_bd_pins RestoringDivision_0/divisor]
+connect_bd_net [get_bd_pins axi_gpio_gata/gpio_io_i] [get_bd_pins RestoringDivision_0/gata]
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+undo
+update_compile_order -fileset sources_1
+save_bd_design
+open_bd_design {C:/Users/dolca/Desktop/project_1/project_1.srcs/sources_1/bd/design_1/design_1.bd}
+create_bd_cell -type module -reference RestoringDivision RestoringDivision_1
+undo
+save_bd_design
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+open_bd_design {C:/Users/dolca/Desktop/project_1/project_1.srcs/sources_1/bd/design_1/design_1.bd}
+create_bd_cell -type module -reference RestoringDivision RestoringDivision_1
+undo
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -jobs 8
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+open_bd_design {C:/Users/dolca/Desktop/project_1/project_1.srcs/sources_1/bd/design_1/design_1.bd}
+create_bd_cell -type module -reference RestoringDivision RestoringDivision_1
+undo
+create_bd_cell -type module -reference RestoringDivision RestoringDivision_1
+undo
+delete_bd_objs [get_bd_nets axi_gpio_resetare_gpio_io_o] [get_bd_nets axi_gpio_start_gpio_io_o] [get_bd_nets axi_gpio_dividend_gpio_io_o] [get_bd_nets axi_gpio_divisor_gpio_io_o] [get_bd_nets RestoringDivision_0_quotient] [get_bd_nets RestoringDivision_0_remainder] [get_bd_nets RestoringDivision_0_gata] [get_bd_cells RestoringDivision_0]
+save_bd_design
+open_bd_design {C:/Users/dolca/Desktop/project_1/project_1.srcs/sources_1/bd/design_1/design_1.bd}
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/dolca/Desktop/project_1/project_1.srcs/sources_1/bd/design_1/design_1.bd}
+create_bd_cell -type module -reference RestoringDivision RestoringDivision_0
+undo
+undo
+save_bd_design
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_bd_design {C:/Users/dolca/Desktop/project_1/project_1.srcs/sources_1/bd/design_1/design_1.bd}
+close_bd_design [get_bd_designs design_1]
+update_module_reference design_1_RestoringDivision_0_1
+reset_run impl_1
+launch_runs impl_1 -jobs 8
+reset_run impl_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+reset_run impl_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+open_run impl_1
+close_design
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0
+endgroup
+set_property location {3 1163 -452} [get_bd_cells axi_gpio_0]
+set_property name axi_gpio_leds [get_bd_cells axi_gpio_0]
+set_property CONFIG.GPIO_BOARD_INTERFACE {leds_4bits} [get_bd_cells axi_gpio_leds]
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {leds_4bits ( 4 LEDs ) } Manual_Source {Auto}}  [get_bd_intf_pins axi_gpio_leds/GPIO]
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/processing_system7_0/FCLK_CLK0 (50 MHz)} Clk_slave {Auto} Clk_xbar {/processing_system7_0/FCLK_CLK0 (50 MHz)} Master {/processing_system7_0/M_AXI_GP0} Slave {/axi_gpio_leds/S_AXI} ddr_seg {Auto} intc_ip {/ps7_0_axi_periph} master_apm {0}}  [get_bd_intf_pins axi_gpio_leds/S_AXI]
+endgroup
+validate_bd_design
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+write_hw_platform -fixed -include_bit -force -file C:/Users/dolca/Desktop/project_1/design_2_wrapper.xsa
+startgroup
+set_property CONFIG.C_IS_DUAL {0} [get_bd_cells axi_gpio_leds]
+endgroup
+delete_bd_objs [get_bd_intf_nets axi_gpio_leds_GPIO] [get_bd_intf_ports leds_4bits]
+startgroup
+set_property CONFIG.GPIO_BOARD_INTERFACE {Custom} [get_bd_cells axi_gpio_leds]
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_pins axi_gpio_leds/gpio_io_o]
+endgroup
+validate_bd_design
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+get_ports gpio_io_o_0*
+open_run impl_1
+get_ports gpio_io_o_0*
+close_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+write_hw_platform -fixed -include_bit -force -file C:/Users/dolca/Desktop/project_1/design_3_wrapper.xsa
+delete_bd_objs [get_bd_intf_nets ps7_0_axi_periph_M08_AXI] [get_bd_nets axi_gpio_leds_gpio_io_o] [get_bd_cells axi_gpio_leds]
+delete_bd_objs [get_bd_ports gpio_io_o_0]
+report_ip_status -name ip_status 
+update_module_reference [get_ips  design_1_RestoringDivision_0_1]
+export_ip_user_files -of_objects  [get_files C:/Users/dolca/Desktop/project_1/project_1.srcs/sources_1/new/top_pot_leds.vhd] -no_script -reset -force -quiet
+remove_files  C:/Users/dolca/Desktop/project_1/project_1.srcs/sources_1/new/top_pot_leds.vhd
+delete_bd_objs [get_bd_intf_nets ps7_0_axi_periph_M05_AXI] [get_bd_nets RestoringDivision_0_quotient] [get_bd_cells axi_gpio_quotient]
+startgroup
+make_bd_pins_external  [get_bd_pins RestoringDivision_0/quotient]
+endgroup
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+report_ip_status -name ip_status 
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_0
+endgroup
+set_property location {5 2330 593} [get_bd_cells xlslice_0]
+set_property CONFIG.DIN_WIDTH {12} [get_bd_cells xlslice_0]
+delete_bd_objs [get_bd_nets RestoringDivision_0_quotient] [get_bd_ports quotient_0]
+undo
+delete_bd_objs [get_bd_nets RestoringDivision_0_quotient] [get_bd_ports quotient_0]
+connect_bd_net [get_bd_pins RestoringDivision_0/quotient] [get_bd_pins xlslice_0/Din]
+startgroup
+make_bd_pins_external  [get_bd_pins xlslice_0/Dout]
+endgroup
+startgroup
+set_property CONFIG.DOUT_WIDTH {4} [get_bd_cells xlslice_0]
+endgroup
+delete_bd_objs [get_bd_nets xlslice_0_Dout] [get_bd_ports Dout_0]
+startgroup
+set_property -dict [list \
+  CONFIG.DIN_FROM {3} \
+  CONFIG.DIN_TO {0} \
+  CONFIG.DOUT_WIDTH {4} \
+] [get_bd_cells xlslice_0]
+endgroup
+startgroup
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_pins xlslice_0/Dout]
+endgroup
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+validate_bd_design -force
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+copy_bd_objs /  [get_bd_cells {axi_gpio_dividend}]
+delete_bd_objs [get_bd_nets RestoringDivision_0_quotient] [get_bd_nets xlslice_0_Dout] [get_bd_cells xlslice_0]
+delete_bd_objs [get_bd_ports Dout_0]
+set_property name axi_gpio_quotient [get_bd_cells axi_gpio_dividend1]
+set_property CONFIG.C_ALL_INPUTS {1} [get_bd_cells axi_gpio_quotient]
+connect_bd_net [get_bd_pins axi_gpio_quotient/gpio_io_i] [get_bd_pins RestoringDivision_0/quotient]
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/processing_system7_0/FCLK_CLK0 (50 MHz)} Clk_slave {Auto} Clk_xbar {/processing_system7_0/FCLK_CLK0 (50 MHz)} Master {/processing_system7_0/M_AXI_GP0} Slave {/axi_gpio_quotient/S_AXI} ddr_seg {Auto} intc_ip {/ps7_0_axi_periph} master_apm {0}}  [get_bd_intf_pins axi_gpio_quotient/S_AXI]
+save_bd_design
+close_bd_design [get_bd_designs design_1]
+report_ip_status -name ip_status 
+update_module_reference [get_ips  design_1_RestoringDivision_0_1]
+generate_target all [get_files  C:/Users/dolca/Desktop/project_1/project_1.srcs/sources_1/bd/design_1/design_1.bd]
+catch { config_ip_cache -export [get_ips -all design_1_xbar_0] }
+catch { [ delete_ip_run [get_ips -all design_1_xbar_0] ] }
+catch { config_ip_cache -export [get_ips -all design_1_axi_gpio_dividend_1] }
+catch { config_ip_cache -export [get_ips -all design_1_auto_pc_0] }
+export_ip_user_files -of_objects [get_files C:/Users/dolca/Desktop/project_1/project_1.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/dolca/Desktop/project_1/project_1.srcs/sources_1/bd/design_1/design_1.bd]
+launch_runs design_1_RestoringDivision_0_1_synth_1 -jobs 8
+wait_on_run design_1_RestoringDivision_0_1_synth_1
+export_simulation -of_objects [get_files C:/Users/dolca/Desktop/project_1/project_1.srcs/sources_1/bd/design_1/design_1.bd] -directory C:/Users/dolca/Desktop/project_1/project_1.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/dolca/Desktop/project_1/project_1.ip_user_files -ipstatic_source_dir C:/Users/dolca/Desktop/project_1/project_1.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/dolca/Desktop/project_1/project_1.cache/compile_simlib/modelsim} {questa=C:/Users/dolca/Desktop/project_1/project_1.cache/compile_simlib/questa} {riviera=C:/Users/dolca/Desktop/project_1/project_1.cache/compile_simlib/riviera} {activehdl=C:/Users/dolca/Desktop/project_1/project_1.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+create_bd_cell -type module -reference RestoringDivision RestoringDivision_1
+delete_bd_objs [get_bd_cells RestoringDivision_1]
+update_module_reference design_1_RestoringDivision_0_1
+set_property source_mgmt_mode All [current_project]
+update_module_reference design_1_RestoringDivision_0_1
+open_bd_design {C:/Users/dolca/Desktop/project_1/project_1.srcs/sources_1/bd/design_1/design_1.bd}
+delete_bd_objs [get_bd_nets axi_gpio_resetare_gpio_io_o] [get_bd_nets axi_gpio_start_gpio_io_o] [get_bd_nets axi_gpio_dividend_gpio_io_o] [get_bd_nets axi_gpio_divisor_gpio_io_o] [get_bd_nets RestoringDivision_0_quotient] [get_bd_nets RestoringDivision_0_remainder] [get_bd_nets RestoringDivision_0_gata] [get_bd_cells RestoringDivision_0]
+update_compile_order -fileset sources_1
+create_bd_cell -type module -reference RestoringDivision RestoringDivision_0
+report_ip_status -name ip_status 
+update_module_reference [get_ips  design_1_RestoringDivision_0_2]
+update_compile_order -fileset sources_1
+connect_bd_net [get_bd_pins axi_gpio_dividend/gpio_io_o] [get_bd_pins RestoringDivision_0/dividend]
+connect_bd_net [get_bd_pins axi_gpio_quotient/gpio_io_i] [get_bd_pins RestoringDivision_0/quotient]
+connect_bd_net [get_bd_pins axi_gpio_remainder/gpio_io_i] [get_bd_pins RestoringDivision_0/remainder]
+connect_bd_net [get_bd_pins axi_gpio_resetare/gpio_io_o] [get_bd_pins RestoringDivision_0/rst]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_0
+endgroup
+delete_bd_objs [get_bd_cells xlslice_0]
+connect_bd_net [get_bd_pins axi_gpio_start/gpio_io_o] [get_bd_pins RestoringDivision_0/start]
+connect_bd_net [get_bd_pins axi_gpio_divisor/gpio_io_o] [get_bd_pins RestoringDivision_0/divisor]
+connect_bd_net [get_bd_pins axi_gpio_gata/gpio_io_i] [get_bd_pins RestoringDivision_0/gata]
+startgroup
+make_bd_pins_external  [get_bd_pins RestoringDivision_0/leds]
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/processing_system7_0/FCLK_CLK0 (50 MHz)} Freq {50} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins RestoringDivision_0/clk]
+reset_run synth_1
+save_bd_design
+update_module_reference design_1_RestoringDivision_1_0
+validate_bd_design
+save_bd_design
+launch_runs impl_1 -jobs 8
+reset_run impl_1
+launch_runs impl_1 -jobs 8
+wait_on_run impl_1
+report_ip_status -name ip_status 
+update_module_reference [get_ips  design_1_RestoringDivision_0_2]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+update_module_reference design_1_RestoringDivision_0_2
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+update_module_reference design_1_RestoringDivision_0_2
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+write_hw_platform -fixed -include_bit -force -file C:/Users/dolca/Desktop/project_1/design_4_wrapper.xsa

@@ -1,0 +1,70 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.52779",
+   "Default View_TopLeft":"1133,-85",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.7.1 2023-07-26 3bc4126617 VDI=43 GEI=38 GUI=JA:21.0
+#  -string -flagsOSRD
+preplace port DDR -pg 1 -lvl 7 -x 3000 -y -180 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 7 -x 3000 -y -210 -defaultsOSRD
+preplace port port-id_vaux6n -pg 1 -lvl 0 -x -60 -y -80 -defaultsOSRD
+preplace port port-id_vaux6p -pg 1 -lvl 0 -x -60 -y -50 -defaultsOSRD
+preplace port port-id_vaux7n -pg 1 -lvl 0 -x -60 -y -20 -defaultsOSRD
+preplace port port-id_vaux7p -pg 1 -lvl 0 -x -60 -y 220 -defaultsOSRD
+preplace port port-id_vaux14n -pg 1 -lvl 0 -x -60 -y 160 -defaultsOSRD
+preplace port port-id_vaux14p -pg 1 -lvl 0 -x -60 -y 100 -defaultsOSRD
+preplace port port-id_vaux15n -pg 1 -lvl 0 -x -60 -y 190 -defaultsOSRD
+preplace port port-id_vaux15p -pg 1 -lvl 0 -x -60 -y 130 -defaultsOSRD
+preplace portBus leds_0 -pg 1 -lvl 7 -x 3000 -y 390 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 2 -x 1330 -y -180 -defaultsOSRD
+preplace inst xadc_wiz_0 -pg 1 -lvl 6 -x 2840 -y 50 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 1 -x 580 -y -220 -defaultsOSRD
+preplace inst rst_ps7_0_50M -pg 1 -lvl 1 -x 580 -y 350 -defaultsOSRD
+preplace inst axi_gpio_resetare -pg 1 -lvl 4 -x 2180 -y -370 -defaultsOSRD
+preplace inst axi_gpio_dividend -pg 1 -lvl 4 -x 2180 -y 300 -defaultsOSRD
+preplace inst axi_gpio_divisor -pg 1 -lvl 2 -x 1330 -y 190 -defaultsOSRD
+preplace inst axi_gpio_start -pg 1 -lvl 2 -x 1330 -y 50 -defaultsOSRD
+preplace inst axi_gpio_gata -pg 1 -lvl 2 -x 1330 -y 330 -defaultsOSRD
+preplace inst axi_gpio_remainder -pg 1 -lvl 4 -x 2180 -y 20 -defaultsOSRD
+preplace inst axi_gpio_quotient -pg 1 -lvl 4 -x 2180 -y 540 -defaultsOSRD
+preplace inst RestoringDivision_0 -pg 1 -lvl 5 -x 2510 -y 360 -defaultsOSRD
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 6 400 -500 1120 -50 1570 -150 2000 190 2360 190 2700
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 3 390 -510 N -510 1520
+preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 0 6 410 70 1070 450 N 450 2010 210 N 210 N
+preplace netloc vauxn14_0_1 1 0 6 -40J 80 1080J -40 NJ -40 1640 110 2340 80 2680
+preplace netloc vauxn15_0_1 1 0 6 NJ 190 750J 420 1550J 390 1640 160 N 160 2670
+preplace netloc vauxn6_0_1 1 0 6 -30J -520 NJ -520 NJ -520 N -520 N -520 2670
+preplace netloc vauxn7_0_1 1 0 6 -40J 60 770J 440 1570J 380 1630 150 2330 10 N
+preplace netloc vauxp14_0_1 1 0 6 NJ 100 760J 430 1530J 400 2020 170 2360 100 2680
+preplace netloc vauxp15_0_1 1 0 6 NJ 130 780J 410 NJ 410 2030 180 N 180 2680
+preplace netloc vauxp6_0_1 1 0 6 -40J -530 NJ -530 NJ -530 N -530 N -530 2680
+preplace netloc vauxp7_0_1 1 0 6 -30J 110 1110J -30 NJ -30 1630 100 2320 40 2680
+preplace netloc axi_gpio_dividend_gpio_io_o 1 4 1 2320 310n
+preplace netloc RestoringDivision_0_quotient 1 4 2 N 550 2680
+preplace netloc RestoringDivision_0_remainder 1 4 2 NJ 30 2660
+preplace netloc axi_gpio_resetare_gpio_io_o 1 4 1 2350 -360n
+preplace netloc axi_gpio_start_gpio_io_o 1 2 3 NJ 60 1610J 220 2340
+preplace netloc axi_gpio_divisor_gpio_io_o 1 2 3 1560J 420 2040J 200 2330
+preplace netloc RestoringDivision_0_gata 1 2 4 1540J 430 1610J 460 NJ 460 2660
+preplace netloc RestoringDivision_0_leds 1 5 2 NJ 390 NJ
+preplace netloc processing_system7_0_DDR 1 2 5 N -230 N -230 N -230 N -230 2980
+preplace netloc processing_system7_0_FIXED_IO 1 2 5 N -210 N -210 N -210 N -210 N
+preplace netloc processing_system7_0_M_AXI_GP0 1 0 3 410 -540 N -540 1530
+preplace netloc ps7_0_axi_periph_M00_AXI 1 1 5 N -300 NJ -300 2040 -290 N -290 2660
+preplace netloc ps7_0_axi_periph_M01_AXI 1 1 3 810J -310 N -310 1650
+preplace netloc ps7_0_axi_periph_M02_AXI 1 1 3 820J -290 N -290 1650
+preplace netloc ps7_0_axi_periph_M03_AXI 1 1 1 1140 -240n
+preplace netloc ps7_0_axi_periph_M04_AXI 1 1 1 1100 -220n
+preplace netloc ps7_0_axi_periph_M05_AXI 1 1 3 1130J -60 N -60 1620
+preplace netloc ps7_0_axi_periph_M06_AXI 1 1 3 1110 -70 N -70 2040
+preplace netloc ps7_0_axi_periph_M07_AXI 1 1 1 1090 -160n
+levelinfo -pg 1 -60 580 1330 1590 2180 2510 2840 3000
+pagesize -pg 1 -db -bbox -sgen -180 -740 3120 650
+"
+}
+{
+   "da_axi4_cnt":"13",
+   "da_board_cnt":"3",
+   "da_clkrst_cnt":"3",
+   "da_ps7_cnt":"1"
+}
